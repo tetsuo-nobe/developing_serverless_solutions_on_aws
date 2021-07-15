@@ -1,0 +1,92 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  aws-cloudformation-demo
+Resources:
+  HelloWorldFunctionHelloWorldPermissionProd:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      Principal: apigateway.amazonaws.com
+      FunctionName: !Ref HelloWorldFunction
+      SourceArn: !Sub 
+        - >-
+          arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${__ApiId__}/${__Stage__}/GET/hello
+        - __Stage__: '*'
+          __ApiId__: !Ref ServerlessRestApi
+  HelloWorldFunctionRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - 'sts:AssumeRole'
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
+      Tags:
+        - Value: CFn
+          Key: 'lambda:createdBy'
+  ServerlessRestApiProdStage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
+      DeploymentId: !Ref ServerlessRestApiDeployment
+      RestApiId: !Ref ServerlessRestApi
+      StageName: Prod
+  ServerlessRestApiDeployment:
+    Type: 'AWS::ApiGateway::Deployment'
+    Properties:
+      RestApiId: !Ref ServerlessRestApi
+      Description: 'RestApi deployment'
+      StageName: Stage
+  ServerlessRestApi:
+    Type: 'AWS::ApiGateway::RestApi'
+    Properties:
+      Body:
+        info:
+          version: '1.0'
+          title: !Ref 'AWS::StackName'
+        paths:
+          /hello:
+            get:
+              x-amazon-apigateway-integration:
+                httpMethod: POST
+                type: aws_proxy
+                uri: !Sub >-
+                  arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${HelloWorldFunction.Arn}/invocations
+              responses: {}
+        swagger: '2.0'
+  HelloWorldFunction:
+    Type: 'AWS::Lambda::Function'
+    Properties:
+      FunctionName: HelloWorldFunction-CFn
+      Code:
+        S3Bucket: tnobe-sam-demo
+        S3Key: lambda4cfn.zip
+      Tags:
+        - Value: CFn
+          Key: 'lambda:createdBy'
+      Handler: app.lambda_handler
+      Role: !GetAtt 
+        - HelloWorldFunctionRole
+        - Arn
+      Timeout: 3
+      Runtime: python3.7
+Outputs:
+  HelloWorldApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value: !Sub >-
+      https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+  HelloWorldFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value: !GetAtt 
+      - HelloWorldFunctionRole
+      - Arn
+  HelloWorldFunction:
+    Description: Hello World Lambda Function ARN
+    Value: !GetAtt 
+      - HelloWorldFunction
+      - Arn

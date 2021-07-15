@@ -58,7 +58,18 @@ AWS quick start application templates:
 Template selection: 1
 ```
 
-10. aws-sam-demo/aws-sam-demo-app/hello_worldのapp.pyの内容をします。
+10. 下記の内容を確認・編集します。
+
+- SAMテンプレート
+
+  - aws-sam-demo/aws-sam-demo-app/template.yaml 
+  - 上記ファイルにHelloWorldFunctionのプロパティに下記を追記して関数名を明示的に指定します。
+    -  FunctionName: HelloWorldFunction-SAM
+
+- デプロイするLambda関数
+
+  - aws-sam-demo/aws-sam-demo-app/hello_world/app.py
+  - デフォルトで {message: hello world}というJSONを返します。必要に応じて変更します。　
 
 11. SAMでデプロイする前準備をします。
 
