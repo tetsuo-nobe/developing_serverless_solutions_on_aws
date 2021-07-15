@@ -1,16 +1,17 @@
 ## AWS CDKのデモ
 ### CDKを使用し、Lamnada関数と統合したAPI GatewayのREST APIを作成する
 
-1.Cloud9のターミナルを開きます。
 
-2.デモ用のフォルダを作成して異動します。
+1. Cloud9のターミナルを開きます。
+
+2. デモ用のフォルダを作成して異動します。
 
 ```
 mkdir aws-cdk-demo
 cd  aws-cdk-demo
 ```
 
-3.CDKのバージョンを確認します。
+3. CDKのバージョンを確認します。
 
 ```
 cdk --version
@@ -33,11 +34,15 @@ npm install @aws-cdk/aws-apigateway@1.111.0
 
 6. デプロイするPythonのLambda関数を作成します。このデモでは、srcディレクトリにindex.pyとして作成します。
 
-このフォルダのindex.pyの内容を参照してください。
+```
+(このフォルダのindex.pyの内容を参照してください。)
+```
 
 7. lib/aws-cdk-demo-stack.tsを編集して、Lambda関数とAPI GatewayのAPIをデプロイするコードを追記します。
 
-このフォルダのaws-cdk-demo-stack.tsの内容を参照してください。
+```
+(このフォルダのaws-cdk-demo-stack.tsの内容を参照してください。)
+```
 
 8. TypeScriptをJavaScriptに変換します。
 
