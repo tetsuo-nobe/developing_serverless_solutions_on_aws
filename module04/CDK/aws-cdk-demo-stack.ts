@@ -19,8 +19,10 @@ export class AwsCdkDemoStack extends cdk.Stack {
     const api = new apigateway.RestApi(this, "api", {
       restApiName: "aws-cdk-demo-api",
     });
+    api.root.addResource("hello")
     const integration = new apigateway.LambdaIntegration(myFunction);
-    api.root.addMethod("GET", integration);
+    api.root.addResource("hello").addMethod("GET", integration);
+    //api.root.addMethod("GET", integration);
     
   }
 }
