@@ -115,7 +115,7 @@ sam deploy --guidedを使うと、sam deployのパラメータをファイルに
 sam deploy --guided
 ```
 
-以後、対話的に進めていくと、指定した内容が（デフォルトで）samconfig.toml ファイルに保存され、デプロイが実行されます。
+以後、対話的に進めていくと、指定した内容がsam deploy実行時に必要パラメータとしてファイル（デフォルト:samconfig.toml）保存され、その後デプロイが実行されます。
 
 ```
 Configuring SAM deploy
@@ -143,7 +143,7 @@ Configuring SAM deploy
 (以下略)
 ```
 
-1回目のデプロイが完了後、2回目のデプロイを実施する時は、下記のように簡単なコマンドでデプロイできます。
+1回目のデプロイが完了後、2回目のsam deployを実施する時は、ファイル（デフォルト:samconfig.toml）が存在する場合は、そこから必要なパラメータが取得されるので、下記のように簡単なコマンドでデプロイできます。
 
 ```
 sam deploy 
