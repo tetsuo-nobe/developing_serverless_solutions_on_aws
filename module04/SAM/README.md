@@ -140,6 +140,7 @@ Configuring SAM deploy
 
                 Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-1atvkbrimmtfv
                 A different default S3 bucket can be set in samconfig.toml
+(以下略)
 ```
 
 1回目のデプロイが完了後、2回目のデプロイを実施する時は、下記のように簡単なコマンドでデプロイできます。
