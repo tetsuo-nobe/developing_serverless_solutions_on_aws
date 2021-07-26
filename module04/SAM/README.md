@@ -78,6 +78,12 @@ cd aws-sam-demo-app
 sam build
 ```
 
+この後、デプロイを実施します。
+sam deploy --guidedを使わない場合は12版のタスクを実行します。
+
+[sam deploy --guidedを使う場合はこちら](#sam-deploy---guidedを使う場合はこちら)
+
+
 12. デプロイパッケージを格納するためのS3バケットを作成します。(既存のものでもOK)
 
 ```
@@ -97,7 +103,46 @@ sam deploy --template-file packaged.yaml --stack-name aws-sam-demo-app --capabil
 ```
 
 
+#sam-deploy---guidedを使う場合はこちら
 
+sam deploy --guidedを使うと、sam deployのパラメータをファイルに保存し、以後、容易にデプロイできます。
+
+```
+sam deploy --guided
+```
+
+以後、対話的に進めていくと、指定した内容が（デフォルトで）samconfig.toml ファイルに保存され、デプロイが実行されます。
+
+```
+Configuring SAM deploy
+======================
+
+        Looking for config file [samconfig.toml] :  Not found
+
+        Setting default arguments for 'sam deploy'
+        =========================================
+        Stack Name [sam-app]: aws-sam-demo-app
+        AWS Region [ap-northeast-1]: 
+        #Shows you resources changes to be deployed and require a 'Y' to initiate deploy
+        Confirm changes before deploy [y/N]: y
+        #SAM needs permission to be able to create roles to connect to the resources in your template
+        Allow SAM CLI IAM role creation [Y/n]: 
+        HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
+        Save arguments to configuration file [Y/n]: y
+        SAM configuration file [samconfig.toml]: 
+        SAM configuration environment [default]: 
+
+        Looking for resources needed for deployment: Found!
+
+                Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-1atvkbrimmtfv
+                A different default S3 bucket can be set in samconfig.toml
+```
+
+1回目のデプロイが完了後、2回目のデプロイを実施する時は、下記のように簡単なコマンドでデプロイできます。
+
+```
+sam deploy 
+```
 
 
 
