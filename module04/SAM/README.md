@@ -81,7 +81,7 @@ sam build
 この後、デプロイを実施します。
 sam deploy --guidedを使わない場合は12版のタスクを実行します。
 
-[sam deploy --guidedを使う場合はこちら](#sam-deploy---guidedを使う場合はこちら)
+[sam deploy --guidedを使う場合はこちら](#sam-deploy--guided)
 
 
 12. デプロイパッケージを格納するためのS3バケットを作成します。(既存のものでもOK)
@@ -103,7 +103,7 @@ sam deploy --template-file packaged.yaml --stack-name aws-sam-demo-app --capabil
 ```
 
 
-#sam-deploy---guidedを使う場合はこちら
+#sam-deploy--guided
 
 sam deploy --guidedを使うと、sam deployのパラメータをファイルに保存し、以後、容易にデプロイできます。
 
