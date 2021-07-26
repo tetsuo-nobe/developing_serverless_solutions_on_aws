@@ -107,7 +107,7 @@ sam deploy --template-file packaged.yaml --stack-name aws-sam-demo-app --capabil
  <br />
  <br />
 
-# デプロイをシンプルにするために 
+## デプロイをシンプルにするために 
  
 sam deploy --guidedを使うと、sam deployのパラメータをファイルに保存し、以後、容易にデプロイできます。
 
