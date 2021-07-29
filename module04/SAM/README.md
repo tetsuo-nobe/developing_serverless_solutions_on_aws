@@ -71,7 +71,19 @@ Template selection: 1
   - aws-sam-demo/aws-sam-demo-app/hello_world/app.py
   - デフォルトで {message: hello world}というJSONを返します。必要に応じて変更します。　
 
-11. SAMでデプロイする前準備をします。
+
+
+11. SAMを使用しローカルでテストします。
+
+```
+sam local invoke 
+```
+
+[その他のローカルテスト用のコマンド](#その他のローカルテスト用のコマンド) 
+<br />
+<br />
+
+12. SAMでデプロイする前準備をします。
 
 ```
 cd aws-sam-demo-app
@@ -84,19 +96,19 @@ sam deploy --guidedを使わない場合は下の12番のタスクを実行し�
 [sam deploy --guidedを使う場合はこちら](#デプロイをシンプルにするために) 
  
  
-12. デプロイパッケージを格納するためのS3バケットを作成します。(既存のものでもOK)
+13. デプロイパッケージを格納するためのS3バケットを作成します。(既存のものでもOK)
 
 ```
 aws s3 mb s3://tnobe-sam-demo
 ```
 
-13. デプロイパッケージをS3に格納します。
+14. デプロイパッケージをS3に格納します。
 
 ```
 sam package --output-template-file packaged.yaml --s3-bucket tnobe-sam-demo
 ```
 
-14. デプロイを実行します。
+15. デプロイを実行します。
 
 ```
 sam deploy --template-file packaged.yaml --stack-name aws-sam-demo-app --capabilities CAPABILITY_IAM
@@ -149,6 +161,29 @@ Configuring SAM deploy
 sam deploy 
 ```
 
+ <br />
+ <br />
+ <br />
+
+## その他のローカルテスト用のコマンド 
+
+Lambda関数
+```
+sam local start-lambda
+```
+
+```
+aws lambda invoke --function-name "HelloWorldFunction" --endpoint-url "http://127.0.0.1:3001" --no-verify-ssl out.txt
+```
+
+API Gateway
+```
+sam local start-api
+```
+
+```
+curl http://127.0.0.1:3000/hello
+```
 
 
 
