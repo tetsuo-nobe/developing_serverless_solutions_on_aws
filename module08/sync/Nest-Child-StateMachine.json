@@ -1,0 +1,27 @@
+{
+    "StartAt": "Wait5",
+    "States": {
+      "Wait5": {
+        "Type": "Wait",
+        "Seconds": 5,
+        "Next": "IsChildSucceed"
+      },
+      "IsChildSucceed": {
+        "Type": "Choice",
+        "Choices": [
+          {
+            "Variable": "$.InputForChild",
+            "StringEquals":"OK",
+            "Next": "SuccessState"
+          }
+        ],
+        "Default": "FailState"
+      },
+      "SuccessState": {
+        "Type": "Succeed"
+      },
+      "FailState": {
+        "Type": "Fail"
+      }
+    }
+  }

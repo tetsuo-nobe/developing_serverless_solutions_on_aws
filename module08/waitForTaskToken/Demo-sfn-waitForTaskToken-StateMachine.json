@@ -1,0 +1,22 @@
+{
+    "Comment": "A Hello World example of the Amazon States Language using Pass states",
+    "StartAt": "Start",
+    "States": {
+      "Start": {
+        "Type": "Pass",
+        "Next": "Queue"
+      },
+    "Queue": {
+    "Type": "Task",
+    "Resource": "arn:aws:states:::sqs:sendMessage.waitForTaskToken",
+    "Parameters": {
+      "QueueUrl": "https://sqs.ap-northeast-1.amazonaws.com/000000000000/Demo-sfn-waitForTaskToken-Queue",
+      "MessageBody": {
+        "Input.$": "$.Name",
+        "TaskToken.$": "$$.Task.Token"
+      }
+    },
+    "End": true
+  }
+    }
+  }

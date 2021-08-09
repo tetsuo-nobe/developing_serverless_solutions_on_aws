@@ -1,0 +1,17 @@
+{
+    "StartAt": "CallChild",
+    "States": {
+      "CallChild": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::states:startExecution.sync",
+        "Parameters": {
+          "StateMachineArn": "arn:aws:states:ap-northeast-1:330174381929:stateMachine:Nest-Child-StateMachine",
+          "Input": {
+            "AWS_STEP_FUNCTIONS_STARTED_BY_EXECUTION_ID.$": "$$.Execution.Id",
+            "InputForChild.$": "$.InputForParent"
+          }
+        },
+        "End": true
+      }
+    }
+  }
