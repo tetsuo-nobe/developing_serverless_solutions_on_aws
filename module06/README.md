@@ -2,7 +2,7 @@
 ## モジュール6のデモ/サンプル
 
 
-### Amazon SQS × AWS Lambda
+### AWS Lambda × Amazon SQS
 
 - sqsフォルダ
   - Demo-SQS-FunctionA.py
@@ -12,7 +12,7 @@
     - ただし、メッセージ内容が "abort" だった場合は強制的にエラーを発生させている。
 
 
-  ### Amazon Kinesis × AWS Lambda
+  ### AWS Lambda × Amazon Kinesis
 - kinesisフォルダ
   - Demo-Kinesis-PublishData-FunctionC.py
     - Kinesis ストリームにレコードを20件Putする。

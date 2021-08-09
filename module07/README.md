@@ -2,7 +2,7 @@
 ## モジュール7のデモ/サンプル
 
 
-### グローバル変数の再利用
+### ハンドラ外の変数の再利用
 - reuseフォルダ
   - reuse-global.py
 
@@ -13,7 +13,7 @@
 ### Lambda関数のバージョンとエイリアス
 - version-aliasフォルダ   
 
-### Amazon SQS × AWS Lambda エラー処理
+### AWS Lambda × Amazon SQS のエラー処理
 - sqs-batchフォルダ
   - sqs-batch.py
     - 正常処理したメッセージの手動削除なし
