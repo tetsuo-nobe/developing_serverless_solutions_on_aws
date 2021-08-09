@@ -1,0 +1,8 @@
+{
+    "order": {
+      "orderId": "0001",
+      "orderItem": "Donuts",
+      "quantity": "1",
+      "receiptRequired": "true"
+    }
+  }
