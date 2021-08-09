@@ -12,7 +12,7 @@
     - ただし、メッセージ内容が "abort" だった場合は強制的にエラーを発生させている。
 
 
-  ### AWS Lambda × Amazon Kinesis
+### AWS Lambda × Amazon Kinesis
 - kinesisフォルダ
   - Demo-Kinesis-PublishData-FunctionC.py
     - Kinesis ストリームにレコードを20件Putする。
