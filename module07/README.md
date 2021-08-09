@@ -3,19 +3,22 @@
 
 
 ### グローバル変数の再利用
-- reuse-global.py
-  - 正常処理したメッセージの手動削除なし
+- reuseフォルダ
+  - reuse-global.py
+
 ### tmp領域の再利用
-- reuse-tmp.py
+- reuseフォルダ
+  - reuse-tmp.py
 
 ### Lambda関数のバージョンとエイリアス
-- version-aliasフォルダ
+- version-aliasフォルダ   
 
 ### Amazon SQS × AWS Lambda エラー処理
-- sqs-batch.py
-  - 正常処理したメッセージの手動削除なし
-- sqs-batch-delete.py
-  - 正常処理したメッセージの手動削除あり
+- sqs-batchフォルダ
+  - sqs-batch.py
+    - 正常処理したメッセージの手動削除なし
+  - sqs-batch-delete.py
+    - 正常処理したメッセージの手動削除あり
 
 
 
