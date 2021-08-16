@@ -1,0 +1,97 @@
+{
+    "Comment": "An example of partially failed branch pattern",
+    "StartAt": "Parallel",
+    "States": {
+      "Parallel": {
+        "Type": "Parallel",
+        "Next": "Final State",
+        "Branches": [
+          {
+            "StartAt": "InvokeFunc01",
+            "States": {
+              "InvokeFunc01": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {
+                  "FunctionName": "arn:aws:lambda:ap-northeast-1:000000000000:function:ConcurrentDemoFunction",
+                  "Payload": {
+                    "flg": "sleep"
+                  }
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "InvokeFunc02",
+            "States": {
+              "InvokeFunc02": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {
+                  "FunctionName": "arn:aws:lambda:ap-northeast-1:000000000000:function:ConcurrentDemoFunction",
+                  "Payload": {
+                    "flg": "sleep"
+                  }
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "InvokeFunc03",
+            "States": {
+              "InvokeFunc03": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {
+                  "FunctionName": "arn:aws:lambda:ap-northeast-1:000000000000:function:ConcurrentDemoFunction",
+                  "Payload": {
+                    "flg": "sleep"
+                  }
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "InvokeFunc04",
+            "States": {
+              "InvokeFunc04": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {
+                  "FunctionName": "arn:aws:lambda:ap-northeast-1:000000000000:function:ConcurrentDemoFunction",
+                  "Payload": {
+                    "flg": "sleep"
+                  }
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "InvokeFunc05",
+            "States": {
+              "InvokeFunc05": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {
+                  "FunctionName": "arn:aws:lambda:ap-northeast-1:000000000000:function:ConcurrentDemoFunction",
+                  "Payload": {
+                    "flg": "sleep"
+                  }
+                },
+                "End": true
+              }
+            }
+          }
+        ]
+      },
+      "Final State": {
+        "Type": "Pass",
+        "End": true
+      }
+    }
+  }
+  
