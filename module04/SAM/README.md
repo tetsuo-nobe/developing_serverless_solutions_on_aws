@@ -76,6 +76,7 @@ Template selection: 1
 11. SAMを使用しローカルでテストします。
 
 ```
+cd aws-sam-demo-app
 sam local invoke 
 ```
 
@@ -86,7 +87,6 @@ sam local invoke
 12. SAMでデプロイする前準備をします。
 
 ```
-cd aws-sam-demo-app
 sam build
 ```
 
