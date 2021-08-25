@@ -26,4 +26,4 @@ def lambda_handler(event, context):
            print('Error getting message')
            raise e
 
-    print("--- END Demo SQS Function D---")
+    print("--- END Demo SQS Function D---:処理件数:" + str(i))
