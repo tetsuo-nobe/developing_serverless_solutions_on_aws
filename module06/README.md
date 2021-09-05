@@ -5,11 +5,13 @@
 ### AWS Lambda × Amazon SQS
 
 - sqsフォルダ
-  - Demo-SQS-FunctionA.py
-  - Demo-SQS-FunctionB.py
-  - Demo-SQS-FunctionC.py
-    - これらのLambda関数は、基本的に全て処理内容は同じで、それぞれトリガーで設定されたSQSのQueueへポーリングして取得したメッセージを表示する。
-    - ただし、メッセージ内容が "abort" だった場合は強制的にエラーを発生させている。
+  - Demo-SQS-Function.py
+    - SQSキューをイベントソースに設定したLambda関数の例
+  - Demo-SQS-SDK.py
+    - SQSキューからメッセージを受診するAWS SDKのコードの例
+  - 上記いずれもサンプルで、エラー処理などは割愛しています。
+  - また、メッセージの取り出され方はSDKとLambdaでは異なります。
+
 
 
 ### AWS Lambda × Amazon Kinesis
