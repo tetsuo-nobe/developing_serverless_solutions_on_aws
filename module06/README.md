@@ -12,10 +12,10 @@
   - 上記いずれもサンプルで、エラー処理などは割愛しています。
   - また、メッセージの取り出され方はSDKとLambdaでは異なります。
 
-### AWS Lambda × DynamoDB Stream
-- dynamodb-streamフォルダ
-  - Demo-DynamoDB-Stream-Function.py
-    - DynamoDB Streamから取得したデータを表示する
+### AWS Lambda × DynamoDB Streams
+- dynamodb-streamsフォルダ
+  - Demo-DynamoDB-Streams-Function.py
+    - DynamoDB Streamsから取得したデータを表示する
 
 
 ### AWS Lambda × Amazon Kinesis
