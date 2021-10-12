@@ -51,6 +51,7 @@ npm run build
 ```
 
 9. CDKを使ってスタックを作成します。
+(初回の場合は、先にcdk bootstrap を実行して CDKが使用するS3バケットを作成します。)
 
 ```
 cdk deploy
