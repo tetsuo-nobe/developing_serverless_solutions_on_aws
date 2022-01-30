@@ -1,0 +1,120 @@
+{
+    "Comment": "A description of my state machine",
+    "StartAt": "Record vacation request",
+    "States": {
+      "Record vacation request": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::aws-sdk:dynamodb:putItem",
+        "Parameters": {
+          "TableName": "Demo-Vacation-Request",
+          "Item": {
+            "request_id": {
+              "S.$": "$.request_id"
+            },
+            "request_status": {
+              "S": "submitted"
+            },
+            "applicant_email": {
+              "S.$": "$.applicant_email"
+            },
+            "approver_email": {
+              "S.$": "$.approver_email"
+            },
+            "type": {
+              "S.$": "$.type"
+            },
+            "start_date": {
+              "S.$": "$.start_date"
+            },
+            "end_date": {
+              "S.$": "$.end_date"
+            },
+            "desc": {
+              "S.$": "$.desc"
+            }
+          }
+        },
+        "Next": "Send vacation request",
+        "ResultPath": "$.Result"
+      },
+      "Send vacation request": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::sqs:sendMessage.waitForTaskToken",
+        "Parameters": {
+          "QueueUrl": "https://sqs.ap-northeast-1.amazonaws.com/330174381929/Demo-sfn-waitForTaskToken-Queue",
+          "MessageBody": {
+            "Input.$": "$",
+            "TaskToken.$": "$$.Task.Token"
+          }
+        },
+        "ResultPath": "$.Result",
+        "Next": "Callback check"
+      },
+      "Callback check": {
+        "Type": "Choice",
+        "Choices": [
+          {
+            "Variable": "$.Result.response",
+            "StringMatches": "approved",
+            "Next": "Approved"
+          }
+        ],
+        "Default": "Rejected"
+      },
+      "Approved": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::aws-sdk:dynamodb:updateItem",
+        "Parameters": {
+          "TableName": "Demo-Vacation-Request",
+          "Key": {
+            "request_id": {
+              "S.$": "$.request_id"
+            }
+          },
+          "UpdateExpression": "SET request_status = :req_status,msg=:msg",
+          "ExpressionAttributeValues": {
+            ":req_status": {
+              "S": "approved"
+            },
+            ":msg": {
+              "S.$": "$.Result.message"
+            }
+          }
+        },
+        "Next": "Notify",
+        "ResultPath": "$.Result"
+      },
+      "Notify": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::sns:publish",
+        "Parameters": {
+          "Message.$": "$",
+          "TopicArn": "arn:aws:sns:ap-northeast-1:330174381929:Demo-Vaction-Request-Topic"
+        },
+        "End": true
+      },
+      "Rejected": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::aws-sdk:dynamodb:updateItem",
+        "Parameters": {
+          "TableName": "Demo-Vacation-Request",
+          "Key": {
+            "request_id": {
+              "S.$": "$.request_id"
+            }
+          },
+          "UpdateExpression": "SET request_status = :req_status, msg = :message",
+          "ExpressionAttributeValues": {
+            ":req_status": {
+              "S": "rejected"
+            },
+            ":message": {
+              "S.$": "$.Result.message"
+            }
+          }
+        },
+        "Next": "Notify",
+        "ResultPath": "$.Result"
+      }
+    }
+  }

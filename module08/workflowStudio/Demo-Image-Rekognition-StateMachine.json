@@ -1,0 +1,52 @@
+{
+    "Comment": "A description of my state machine",
+    "StartAt": "DetectLabels",
+    "States": {
+      "DetectLabels": {
+        "Type": "Task",
+        "Next": "Map",
+        "Parameters": {
+          "Image": {
+            "S3Object": {
+              "Bucket.$": "$.detail.bucket.name",
+              "Name.$": "$.detail.object.key"
+            }
+          },
+          "MaxLabels": 3,
+          "MinConfidence": 90
+        },
+        "Resource": "arn:aws:states:::aws-sdk:rekognition:detectLabels",
+        "ResultPath": "$.Result"
+      },
+      "Map": {
+        "Type": "Map",
+        "Iterator": {
+          "StartAt": "DynamoDB PutItem -ImageLabels",
+          "States": {
+            "DynamoDB PutItem -ImageLabels": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::aws-sdk:dynamodb:putItem",
+              "Parameters": {
+                "TableName": "Demo-ImageLabels",
+                "Item": {
+                  "s3key": {
+                    "S.$": "$$.Execution.Input.detail.object.key"
+                  },
+                  "label": {
+                    "S.$": "$.Name"
+                  },
+                  "confidencee": {
+                    "S.$": "States.Format('{}',$.Confidence)"
+                  }
+                }
+              },
+              "End": true
+            }
+          }
+        },
+        "End": true,
+        "ResultPath": "$.Result",
+        "ItemsPath": "$.Result.Labels"
+      }
+    }
+  }
