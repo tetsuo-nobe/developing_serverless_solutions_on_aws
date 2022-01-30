@@ -28,6 +28,7 @@
 - workflowStudioフォルダ
   - Demo-Image-Rekognition-StateMachine.json
     - S3バケットに格納された画像をAmazon Rekognitionでラベル検出してDynamoDBに格納するステートマシン
+    - S3で発生したイベントは直接EventBridgeに渡され、EventBridgeによりステートマシンが起動
 
 
 
