@@ -26,17 +26,17 @@
   - Demo-sfn-waitForTaskToken-Function.js
     - 休暇申請を承認して、ステートマシンにタスクトークンを返すLambda関数
   
-   ```
-  {
-    "request_id": "0001",
-    "applicant_email": "tnobe@amazon.co.jp",
-    "approver_email":  "tnobe+1000@amazon.co.jp",
-    "type":            "paid",
-    "start_date":      "2022/03/25",
-    "end_date":        "2022/03/26",
-    "desc":            "私用"
-  }
-  ```
+    ```
+    {
+      "request_id": "0001",
+      "applicant_email": "tnobe@amazon.co.jp",
+      "approver_email":  "tnobe+1000@amazon.co.jp",
+      "type":            "paid",
+      "start_date":      "2022/03/25",
+      "end_date":        "2022/03/26",
+      "desc":            "私用"
+    }
+    ```
   
   - Demo-Vaction-Request-StateMachine.json
     - 休暇申請を受付てSQSキューにメッセージを送信し、Lambda関数からのタスクトークンを待機するステートマシン
