@@ -25,7 +25,8 @@
 - waitForTaskToken_VacationRequestフォルダ
   - Demo-sfn-waitForTaskToken-Function.js
     - 休暇申請を承認して、ステートマシンにタスクトークンを返すLambda関数
-    ```
+  
+   ```
   {
     "request_id": "0001",
     "applicant_email": "tnobe@amazon.co.jp",
@@ -35,7 +36,8 @@
     "end_date":        "2022/03/26",
     "desc":            "私用"
   }
-    ```
+  ```
+  
   - Demo-Vaction-Request-StateMachine.json
     - 休暇申請を受付てSQSキューにメッセージを送信し、Lambda関数からのタスクトークンを待機するステートマシン
     - 申請の情報や、承認、却下の情報をDynamoDBで管理する
