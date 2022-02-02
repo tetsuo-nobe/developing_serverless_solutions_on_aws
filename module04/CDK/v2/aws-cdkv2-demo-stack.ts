@@ -1,6 +1,5 @@
 import { RemovalPolicy, Stack, StackProps } from "aws-cdk-lib";
 import { Construct } from "constructs";
-import { Asset } from "aws-cdk-lib/aws-s3-assets";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as apigateway from "aws-cdk-lib/aws-apigateway";
 import * as path from "path";
