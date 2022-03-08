@@ -115,6 +115,12 @@ sam deploy --template-file packaged.yaml --stack-name aws-sam-demo-app --capabil
 ```
 
 以上でデプロイは完了です！
+
+16. SAMで作成したスタックを削除するには、`sam delete` を実行します。
+
+```
+sam delete
+```
  <br />
  <br />
  <br />
