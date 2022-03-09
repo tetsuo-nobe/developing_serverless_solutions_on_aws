@@ -41,7 +41,7 @@
         "Type": "Task",
         "Resource": "arn:aws:states:::sqs:sendMessage.waitForTaskToken",
         "Parameters": {
-          "QueueUrl": "https://sqs.ap-northeast-1.amazonaws.com/330174381929/Demo-sfn-waitForTaskToken-Queue",
+          "QueueUrl": "https://sqs.ap-northeast-1.amazonaws.com/000000000000/Demo-sfn-waitForTaskToken-Queue",
           "MessageBody": {
             "Input.$": "$",
             "TaskToken.$": "$$.Task.Token"
@@ -89,7 +89,7 @@
         "Resource": "arn:aws:states:::sns:publish",
         "Parameters": {
           "Message.$": "$",
-          "TopicArn": "arn:aws:sns:ap-northeast-1:330174381929:Demo-Vaction-Request-Topic"
+          "TopicArn": "arn:aws:sns:ap-northeast-1:000000000000:Demo-Vaction-Request-Topic"
         },
         "End": true
       },
