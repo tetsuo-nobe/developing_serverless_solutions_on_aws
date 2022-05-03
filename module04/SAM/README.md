@@ -1,5 +1,5 @@
 ## AWS SAMのデモ
-### SAMを使用し、Lamnada関数と統合したAPI GatewayのREST APIを作成する
+### SAMを使用し、Lambda関数と統合したAPI GatewayのREST APIを作成する
 
 
 1. Cloud9のターミナルを開きます。
