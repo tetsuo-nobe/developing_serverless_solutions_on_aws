@@ -87,9 +87,13 @@ sam logs --stack-name sam-app --tail
 
 ログで `Invoking the updated function` が出力されていることを確認します。
 
-確認できたら、Ctrl + c を選択します。
+確認できたら、Ctrl + c を押下します。
 
 9. クリーンアップ
+
+`sam sync --watch --stack-name sam-app` を実行したターミナルで、Ctrl + c を押下します。
+
+その後、次のコマンドを実行して SAM ｒのリソースを削除します。
 
 ```
 sam delete --stack-name sam-app
