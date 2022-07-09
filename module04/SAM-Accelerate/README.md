@@ -1,8 +1,6 @@
 ## AWS SAM Accelerateのデモ
 ### AWS SAM Accelerateを使用し、Lambda関数と統合したAPI GatewayのREST APIを作成、更新する
 
-**注意: sam  synth --watch については未だパブリックプレビューのフェーズです。**
-
 1. Cloud9 のターミナルを開きます。
 
 2. SAM CLI のバージョンを確認します。
@@ -38,7 +36,7 @@ cd sam-tutorial
 
 5. サーバーレスアプリケーションをデプロイし、変更を監視するプロセスを開始します。
 
-プレビュー機能の使用を確認するプロンプトが表示されたら、Y で応答します。
+実行を確認するプロンプトが表示されたら、Y で応答します。
 
 ```
 sam sync --watch --stack-name sam-app
