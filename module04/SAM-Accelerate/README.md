@@ -36,7 +36,7 @@ sam init --app-template hello-world --name sam-tutorial --package-type Zip --run
 cd sam-tutorial 
 ```
 
-5. サーバーレスアプリケーションの変更を監視するプロセスを開始します。
+5. サーバーレスアプリケーションをデプロイし、変更を監視するプロセスを開始します。
 
 プレビュー機能の使用を確認するプロンプトが表示されたら、Y で応答します。
 
