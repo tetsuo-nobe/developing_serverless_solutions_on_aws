@@ -95,3 +95,5 @@ sam logs --stack-name sam-app --tail
 sam delete --stack-name sam-app
 ```
 
+確認のプロンプトが表示されたら、すべて Y で応答します。
+
