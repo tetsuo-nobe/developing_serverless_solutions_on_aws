@@ -5,3 +5,4 @@
 * SAMテンプレート
   - Lambda関数 HelloWorldFunction は、SAMのリソースタイプとして記述
   - Amazon API Gateway の REST API や Lamnda関数との連携設定は、CloudFormation のリソースタイプとして記述
+    - sam-cfn.yaml の 14 行目から 55 行目
