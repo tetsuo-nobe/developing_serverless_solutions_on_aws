@@ -167,6 +167,10 @@ sam deploy --guidedを使うと、sam deployのパラメータをファイルに
  
         (以下略)
         
+リモートでのテストを実行します。
+
+      sam remote invoke --stack-name sam-app --region ap-northeast-1
+
 
 1回目のデプロイが完了後、2回目のsam deployを実施する時は、ファイル（デフォルト:samconfig.toml）が存在する場合は、そこから必要なパラメータが取得されるので、下記のように簡単なコマンドでデプロイできます。
 
