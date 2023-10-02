@@ -45,7 +45,7 @@
         Template: 1
         
 
-1. AWS X-Ray によるトレース取得の有効化または無効化を指定します。このデモでは、そのまま Enter キーを押下して N (無効化)を選択します。
+1. AWS X-Ray によるトレース取得や CloudWatch Application Insights の有効化または無効化を指定します。このデモでは、そのまま Enter キーを押下して N (無効化)を選択します。
 
         
         Based on your selections, the only Package type available is Zip.
@@ -54,7 +54,11 @@
         Based on your selections, the only dependency manager available is pip.
         We will proceed copying the template using pip.
 
-        Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]: 
+        Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]:
+
+        Would you like to enable monitoring using CloudWatch Application Insights?
+        For more info, please view https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-application- 
+        insights.html [y/N]:
         
 
 1. プロジェクト名を指定します。このデモでは aws-sam-demo-app を入力します。
