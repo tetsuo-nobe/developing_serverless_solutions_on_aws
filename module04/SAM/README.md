@@ -150,7 +150,7 @@ sam deploy --guidedを使うと、sam deployのパラメータをファイルに
 
         Setting default arguments for 'sam deploy'
         =========================================
-        Stack Name [sam-app]: sam-app1002
+        Stack Name [sam-app]: sam-app
         AWS Region [ap-northeast-1]: 
         #Shows you resources changes to be deployed and require a 'Y' to initiate deploy
         Confirm changes before deploy [y/N]: 
