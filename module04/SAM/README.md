@@ -39,6 +39,9 @@
                 1 - Hello World Example
                 2 - Infrastructure event management
                 3 - Multi-step workflow
+                4 - Lambda EFS example
+                5 - Serverless Connector Hello World Example
+                6 - Multi-step workflow with Connectors
         Template: 1
         
 
