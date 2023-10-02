@@ -1,8 +1,8 @@
 ## AWS SAMのデモ
-### SAMを使用し、Lambda関数と統合したAPI GatewayのREST APIを作成する
+### SAM を使用し、Lambda関数と統合したAPI GatewayのREST APIを作成する
+#### SAM CLI はインストール済の前提です ####
 
-
-1. Cloud9 のターミナルを開きます。
+1. Mac や Linux の場合はターミナル、Windows の場合はコマンドプロンプトを開きます。
 
 1. デモ用のフォルダを作成して移動します。
 
