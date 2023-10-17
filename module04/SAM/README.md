@@ -208,6 +208,9 @@ API Gateway
         
 ## AWS SAM CLI のインストール
 
+* https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/install-sam-cli.html
+* 以下は Linux でのインストール例
+
         mkdir tmp && cd tmp
         wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
         unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
