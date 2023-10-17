@@ -1,7 +1,8 @@
 ## AWS SAMのデモ
 ### SAM を使用し、Lambda関数と統合したAPI GatewayのREST APIを作成する
-#### SAM CLI バージョン 1.90.0 以上がインストール済の前提です ####
-
+* **SAM CLI バージョン 1.90.0 以上がインストール済の前提です**
+  - SAM CLI　のインストールについてはこちらをご参照ください
+    
 1. Mac や Linux の場合はターミナル、Windows の場合はコマンドプロンプトを開きます。
 
 1. デモ用のフォルダを作成して移動します。
@@ -182,6 +183,8 @@ sam deploy --guidedを使うと、sam deployのパラメータをファイルに
  <br />
  <br />
 
+---
+
 ## その他のローカルテスト用のコマンド 
 
 Lambda関数
@@ -200,8 +203,17 @@ API Gateway
 
         
         curl http://127.0.0.1:3000/hello
-        
 
+---
+        
+## AWS SAM CLI のインストール
+
+        mkdir tmp && cd tmp
+        wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+        unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
+        sudo ./sam-installation/install --update
+        cd ..
+        rm -rf tmp
 
 
 
