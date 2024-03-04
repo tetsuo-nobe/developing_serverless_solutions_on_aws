@@ -1,5 +1,5 @@
 ## Amazon Cognito
-### AWS CLIを使用したCognitoユーザープールへのサインインの例
+### AWS CLI を使用したCognito ユーザープールへのサインインの例
 
 1. 必要な情報を環境変数に設定
 
@@ -10,7 +10,7 @@ USER_EMAIL=(ユーザーのメールアドレス)
 PASSWORD=(ユーザーのパスワード)
 ```
 
-2. AWS CLIコマンドでサインイン
+2. AWS CLI コマンドでサインイン
 
 ```
  aws cognito-idp admin-initiate-auth \
@@ -20,16 +20,16 @@ PASSWORD=(ユーザーのパスワード)
   --auth-parameters "USERNAME=${USER_EMAIL},PASSWORD=${PASSWORD}"
 ```
 
-3. API GatewayでJWTまたはCognitoオーサライザーが設定されたAPIにアクセスする場合、返されたJWTトークンからIDトークンの値を Authorizationヘッダに設定してリクエストを発行する
+3. API Gateway で JW Tまたは Cognito オーサライザーが設定された API にアクセスする場合、返された JWT トークンから ID トークンの値を Authorization ヘッダに設定してリクエストを発行する
 
 ```
 curl (API Gateway URL) -H "Authorization:(IDトークン)"
 ```
 
 
-### AWS CLIを使用してCognitoIDプールから一時的な認証情報を取得する例
+### AWS CLI を使用してCognito ID プールから一時的な認証情報を取得する例
 
-1. Cognitoユーザープールでサインインを行いJWTトークンを取得する。JWTトークンの中のIDトークンを環境変数に設定する
+1. Cognito ユーザープールでサインインを行い JWT トークンを取得する。JWT トークンの中の ID トークンを環境変数に設定する
 
 ```
 ID_TOKEN=(JWTトークンの中のIDトークン)
@@ -44,7 +44,7 @@ COGNITO_USER_POOL=cognito-idp.${REGION}.amazonaws.com/${USER_POOL_ID}
 IDENTITY_POOL_ID=(Congnito IDプールのID)
 ```
 
-3. CognitoIDプールからIdentity IDを取得して環境変数に設定
+3. Cognito ID プールから Identity ID を取得して環境変数に設定
 
 ```
 IDENTITY_ID=$(aws cognito-identity get-id \
@@ -54,7 +54,7 @@ IDENTITY_ID=$(aws cognito-identity get-id \
   --output text) && echo ${IDENTITY_ID}
 ```
 
-4. Identity IDを使って一時的な認証情報を取得
+4. Identity ID を使って一時的な認証情報を取得
 
 ```
 aws cognito-identity get-credentials-for-identity \
@@ -62,7 +62,7 @@ aws cognito-identity get-credentials-for-identity \
   --logins "${COGNITO_USER_POOL}=${ID_TOKEN}"
 ```
 
-5. 一時的な認証情報から関連するIAMロール名を表示する
+5. 一時的な認証情報から関連する IAM ロール名を表示する
 
 ```
 export AWS_ACCESS_KEY_ID=(一時的な認証情報の中のアクセスキーID)
@@ -71,7 +71,7 @@ export AWS_SESSION_TOKEN=(一時的な認証情報の中のセッショントー
 
 aws sts get-caller-identity 
 ```
-6. API GatewayのAPIでIAM認証を設定している場合、一時的な認証情報の値からSigV4による署名キーを算出して、Authorizationヘッダに設定してリクエストを発行する
+6. API Gateway の API で IAM 認証を設定している場合、一時的な認証情報の値から SIGv4 による署名キーを算出して、Authorization ヘッダに設定してリクエストを発行する
 
 https://docs.aws.amazon.com/ja_jp/general/latest/gr/signature-v4-examples.html
 
