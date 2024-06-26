@@ -31,12 +31,13 @@
         
         Choose an AWS Quick Start application template
                 1 - Hello World Example
-                2 - Infrastructure event management
-                3 - Multi-step workflow
-                4 - Lambda EFS example
-                5 - Serverless Connector Hello World Example
-                6 - Multi-step workflow with Connectors
-        Template: 1
+                2 - Hello World Example With Powertools for AWS Lambda
+                3 - Infrastructure event management
+                4 - Multi-step workflow
+                5 - Lambda EFS example
+                6 - Serverless Connector Hello World Example
+                7 - Multi-step workflow with Connectors
+       Template: 1
         
 
 1. AWS X-Ray によるトレース取得や CloudWatch Application Insights の有効化または無効化を指定します。このデモでは、そのまま Enter キーを押下して N (無効化)を選択します。
