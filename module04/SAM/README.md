@@ -144,24 +144,26 @@ HelloWorldFunction may not have authorization defined, Is this okay? では `y` 
    Configuring SAM deploy
    ======================
 
-    Looking for config file [samconfig.toml] :  Not found
+        Looking for config file [samconfig.toml] :  Found
+        Reading default arguments  :  Success
 
-    Setting default arguments for 'sam deploy'
-    =========================================
-    Stack Name [sam-app]: sam-app
-    AWS Region [ap-northeast-1]: 
-    #Shows you resources changes to be deployed and require a 'Y' to initiate deploy
-    Confirm changes before deploy [y/N]: 
-    #SAM needs permission to be able to create roles to connect to the resources in your template
-    Allow SAM CLI IAM role creation [Y/n]: 
-    #Preserves the state of previously provisioned resources when an operation fails
-    Disable rollback [y/N]: 
-    HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
-    Save arguments to configuration file [Y/n]: 
-    SAM configuration file [samconfig.toml]: 
-    SAM configuration environment [default]: 
+        Setting default arguments for 'sam deploy'
+        =========================================
+        Stack Name [aws-sam-demo-app]: 
+        AWS Region [ap-northeast-1]: 
+        #Shows you resources changes to be deployed and require a 'Y' to initiate deploy
+        Confirm changes before deploy [Y/n]: 
+        #SAM needs permission to be able to create roles to connect to the resources in your template
+        Allow SAM CLI IAM role creation [Y/n]: 
+        #Preserves the state of previously provisioned resources when an operation fails
+        Disable rollback [y/N]: 
+        HelloWorldFunction has no authentication. Is this okay? [y/N]: y
+        Save arguments to configuration file [Y/n]: 
+        SAM configuration file [samconfig.toml]: 
+        SAM configuration environment [default]: 
 
-    Looking for resources needed for deployment:
+        Looking for resources needed for deployment:
+
 
     (以下略)
  
@@ -177,7 +179,7 @@ HelloWorldFunction may not have authorization defined, Is this okay? では `y` 
         
 リモートでのテストを実行します。
 
-      sam remote invoke --stack-name sam-app --region ap-northeast-1
+      sam remote invoke --stack-name aws-sam-demo-app --region ap-northeast-1
 
 
 1回目のデプロイが完了後、2回目のsam deployを実施する時は、ファイル（デフォルト:samconfig.toml）が存在する場合は、そこから必要なパラメータが取得されるので、下記のように簡単なコマンドでデプロイできます。
