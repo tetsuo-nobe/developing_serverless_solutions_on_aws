@@ -169,8 +169,8 @@ HelloWorldFunction may not have authorization defined, Is this okay? では `y` 
 変更セットの確認で `y` を入力します。
 
     Previewing CloudFormation changeset before deployment
-　　======================================================
-　　Deploy this changeset? [y/N]: 
+    ======================================================
+    Deploy this changeset? [y/N]: 
 
         
 リモートでのテストを実行します。
