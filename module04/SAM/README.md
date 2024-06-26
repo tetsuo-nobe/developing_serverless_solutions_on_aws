@@ -5,13 +5,6 @@
     
 1. Mac や Linux の場合はターミナル、Windows の場合はコマンドプロンプトを開きます。
 
-1. デモ用のフォルダを作成して移動します。
-
-        
-        mkdir aws-sam-demo
-        cd  aws-sam-demo
-        
-
 1. 下記を実行して SAM のバージョンが 1.90.0 以上であることを確認して下さい。
 
         
@@ -21,7 +14,7 @@
 1. SAM のリソースを作成します。デモでは Python の Lambda 関数を作成します。
 
         
-        sam init --runtime python3.9
+        sam init --runtime python3.11
         
 
 1. テンプレートを選択します。このデモでは、1のAWS Quick Start Templatesを選択します。
@@ -84,11 +77,11 @@
         - デフォルトで {message: hello world}というJSONを返します。必要に応じて変更します。　
 
 
-1. SAM でサーバーレスアプリケーションを構築してテストやデプロイする前準備を行います。
+1. SAM でサーバーレスアプリケーションの依存性を解決して、テストやデプロイする前準備を行います。ここでは、`--use-container` オプションを指定してコンテナを使ってビルドしていますので、Lambda 関数のランタイムとローカルのランタイムのバージョンが不一致でも問題ありません。ただし、Docker がインストールされている必要があります。
 
         
         cd aws-sam-demo-app
-        sam build
+        sam build  --use-container
         
 
 1. SAM を使用しローカルでテストします。(Docker が必要です。)
