@@ -55,11 +55,12 @@
         Based on your selections, the only dependency manager available is pip.
         We will proceed copying the template using pip.
 
-        Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]:
-
+        Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]: 
+        
         Would you like to enable monitoring using CloudWatch Application Insights?
-        For more info, please view https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-application- 
-        insights.html [y/N]:
+        For more info, please view https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.html [y/N]: 
+        
+        Would you like to set Structured Logging in JSON format on your Lambda functions?  [y/N]: 
         
 
 1. プロジェクト名を指定します。このデモでは aws-sam-demo-app を入力します。
