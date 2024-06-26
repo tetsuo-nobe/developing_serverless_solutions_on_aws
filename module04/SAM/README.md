@@ -138,6 +138,7 @@ sam deploy --guidedを使うと、sam deployのパラメータをファイルに
         
 
 以後、対話的に進めていくと、指定した内容がsam deploy実行時に必要パラメータとしてファイル（デフォルト:samconfig.toml）保存され、その後デプロイが実行されます。
+HelloWorldFunction may not have authorization defined, Is this okay? では `y` を指定します。
 
         
    Configuring SAM deploy
@@ -164,6 +165,12 @@ sam deploy --guidedを使うと、sam deployのパラメータをファイルに
 
     (以下略)
  
+
+変更セットの確認で `y` を入力します。
+
+    Previewing CloudFormation changeset before deployment
+　　======================================================
+　　Deploy this changeset? [y/N]: 
 
         
 リモートでのテストを実行します。
