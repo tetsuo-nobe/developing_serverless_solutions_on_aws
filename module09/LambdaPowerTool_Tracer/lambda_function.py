@@ -4,7 +4,7 @@ import boto3
 import random
 from boto3.dynamodb.types import TypeDeserializer
 
-## PowerTool Traceer をインポート
+## PowerTool Tracer をインポート
 from aws_lambda_powertools import Tracer
 tracer = Tracer(service="jam-service")
 
