@@ -6,7 +6,7 @@ from boto3.dynamodb.types import TypeDeserializer
 
 ## PowerTool Tracer をインポート
 from aws_lambda_powertools import Tracer
-tracer = Tracer(service="jam-service")
+tracer = Tracer(service="my-service")
 
 table_name = os.environ["TABLE_NAME"]
 client = boto3.client("dynamodb")
