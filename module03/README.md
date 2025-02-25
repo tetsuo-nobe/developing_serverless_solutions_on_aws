@@ -72,9 +72,14 @@ export AWS_SESSION_TOKEN=(一時的な認証情報の中のセッショントー
 aws sts get-caller-identity 
 ```
 6. API Gateway の API で IAM 認証を設定している場合、一時的な認証情報の値から SIGv4 による署名キーを算出して、Authorization ヘッダに設定してリクエストを発行する
-
 https://docs.aws.amazon.com/ja_jp/general/latest/gr/signature-v4-examples.html
 
+- 下記は、[awscurl](https://github.com/okigan/awscurl) というツールを使用している例
+```
+awscurl  https://xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com/dev/iam  \
+    --region ap-northeast-1 \
+    --service execute-api
+```
 
 
 
