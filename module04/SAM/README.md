@@ -14,7 +14,7 @@
 1. SAM のリソースを作成します。デモでは Python の Lambda 関数を作成します。
 
         
-        sam init --runtime python3.11
+        sam init --runtime python3.13
         
 
 1. テンプレートを選択します。このデモでは、1のAWS Quick Start Templatesを選択します。
