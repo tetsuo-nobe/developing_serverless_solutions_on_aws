@@ -1,6 +1,8 @@
 ## Amazon Cognito
 ### AWS CLI を使用したCognito ユーザープールへのサインインの例
 
+0. Cognito ユーザープールを作成し、ユーザー１名のサインアップが完了している前提
+
 1. 必要な情報を環境変数に設定
 
 ```
@@ -11,6 +13,7 @@ PASSWORD=(ユーザーのパスワード)
 ```
 
 2. AWS CLI コマンドでサインイン
+    - このコマンドで認証が成功すれば、JWT トークンが返される
 
 ```
  aws cognito-idp admin-initiate-auth \
@@ -26,10 +29,16 @@ PASSWORD=(ユーザーのパスワード)
 curl (API Gateway URL) -H "Authorization:(IDトークン)"
 ```
 
+---
 
 ### AWS CLI を使用してCognito ID プールから一時的な認証情報を取得する例
 
-1. Cognito ユーザープールでサインインを行い JWT トークンを取得する。JWT トークンの中の ID トークンを環境変数に設定する
+0. Cognito ID プールを作成し、下記を構成済の前提
+    - Cognito ユーザープールをアイデンティティプロバイダとして設定している
+    - アイデンティティプロバイダで認証された ID には 特定の IAM ロールを付与するように設定している
+  
+2. Cognito ユーザープールでサインインを行い JWT トークンを取得する
+   - JWT トークンの中の ID トークンを環境変数に設定する
 
 ```
 ID_TOKEN=(JWTトークンの中のIDトークン)
@@ -54,7 +63,7 @@ IDENTITY_ID=$(aws cognito-identity get-id \
   --output text) && echo ${IDENTITY_ID}
 ```
 
-4. Identity ID を使って一時的な認証情報を取得
+4. Identity ID を使って IAM ロールの一時的な認証情報を取得
 
 ```
 aws cognito-identity get-credentials-for-identity \
