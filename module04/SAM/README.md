@@ -78,10 +78,14 @@
         - デフォルトで {message: hello world}というJSONを返します。必要に応じて変更します。　
 
 
+1. SAM テンプレートに誤りがないか検証します。
+
+        cd aws-sam-demo-app
+        sam validate
+
 1. SAM でサーバーレスアプリケーションの依存性を解決して、テストやデプロイする前準備を行います。ここでは、`--use-container` オプションを指定してコンテナを使ってビルドしていますので、Lambda 関数のランタイムとローカルのランタイムのバージョンが不一致でも問題ありません。ただし、Docker がインストールされている必要があります。
 
         
-        cd aws-sam-demo-app
         sam build  --use-container
         
 
